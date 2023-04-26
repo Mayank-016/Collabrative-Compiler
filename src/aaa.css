@@ -1,0 +1,367 @@
+.homePageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    height: 100vh;
+}
+
+.formWrapper {
+    background: #282a36;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.mainLabel {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.homePageLogo {
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.inOut {
+    resize: none;
+    border: 2px solid rgb(32, 28, 28);
+    height: 100px;
+    margin-top: 20px;
+}
+
+.inputBox,
+.outputWrap,
+.runBtn,
+.languageSelect {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 14px;
+    background: #eee;
+    font-size: 16px;
+    color: #1c1e29;
+    font-weight: bold;
+}
+
+.btn {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.joinBtn,
+.leaveBtn {
+    background: #4aed88;
+    width: 100px;
+    margin-left: auto;
+}
+
+.joinBtn:hover,
+.leaveBtn:hover {
+    background: #2b824c;
+}
+
+.createInfo {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.languageBtn,
+.runBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* 
+.inPut1{
+    background-color: #282a36;
+    color: #fffefe;
+    padding: 10px;
+    border-radius: 8px;
+    outline:#fff;
+    border:#fff;
+    margin-bottom: 14px;
+    font-size: 16px;
+    font-weight: bold;   
+    position: relative;
+    bottom: 280px;
+    left: 250px;
+}
+
+.inPut{
+    padding: 2%;
+    border-radius: 8px;
+    outline:#fff;
+    border:2px solid #2b824c;
+    margin-bottom: 14px;
+    background:#282a36;
+    font-size: 16px;
+    font-weight: bold;   
+    color: #eee;
+    resize: none;
+    height: 200px;
+    width: 350px;
+    position: relative;
+    bottom: 280px;
+    left: 250px;
+} */
+
+.languageSelect {
+    position: absolute;
+    top: 20px;
+    right: 150px;
+}
+
+.createNewBtn {
+    color: #4aed88;
+    text-decoration: none;
+    border-bottom: 1px solid #4aed88;
+    transition: all 0.3s ease-in-out;
+}
+
+.createNewBtn:hover,
+footer a:hover {
+    color: #368654;
+    border-color: #368654;
+}
+
+.mainWrap {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.aside {
+    background: #1c1e29;
+    padding: 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.asideInner {
+    flex: 1;
+}
+
+.clientsList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.userName {
+    margin-top: 10px;
+}
+
+.logo {
+    border-bottom: 1px solid #424242;
+    padding-bottom: 10px;
+}
+
+.logoImage {
+    height: 60px;
+}
+
+.leaveBtn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.editorWrap {
+    min-height: calc(100vh - 10px);
+    font-size: 20px;
+    line-height: 1.6;
+    padding-top: 20px;
+    overflow-y: scroll;
+
+}
+
+/* .outPut1{
+    padding: 2%;
+    border-radius: 8px;
+    outline:#fff;
+    margin-bottom: 14px;
+    background:#282a36;
+    font-size: 16px;
+    font-weight: bold;   
+    color: #eee;
+    resize: none;
+    height: 200px;
+    width: 600px;
+    position: relative;
+    bottom: 528px;
+    left: 700px;
+}
+
+.outPut{
+    padding: 2%;
+    border-radius: 8px;
+    outline:#fff;
+    border:2px solid #2b824c;
+    margin-bottom: 14px;
+    background:#282a36;
+    font-size: 16px;
+    font-weight: bold;   
+    color: #eee;
+    resize: none;
+    height: 200px;
+    width: 600px;
+    position: relative;
+    bottom: 528px;
+    left: 700px;
+} */
+
+.outputWrap {
+    background: #1c1e29;
+    padding: 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.runBtn {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: #4aed88;
+    width: 100px;
+    margin-left: auto;
+}
+
+.languageSelect {
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: #4aed88;
+    width: auto;
+    margin-left: auto;
+}
+
+.runBtn:hover {
+    background: #2b824c;
+}
+
+.inPut {
+    background-color: #44475a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    margin-right: 5px;
+    padding: 10px;
+    resize: none;
+    height: 200px;
+    width: 350px;
+    position: relative;
+    bottom: 300px;
+    left: 250px;
+}
+
+.inPut1 {
+    background-color: #44475a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    margin-right: 5px;
+    padding: 10px;
+    resize: none;
+    position: relative;
+    bottom: 300px;
+    left: 250px;
+}
+
+.outPut {
+    background-color: #44475a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    margin-right: 5px;
+    padding: 10px;
+    resize: none;
+    height: 200px;
+    width: 600px;
+    position: relative;
+    bottom: 565px;
+    left: 700px;
+}
+
+.outPut1 {
+    background-color: #44475a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    margin-right: 5px;
+    padding: 10px;
+    resize: none;
+    position: relative;
+    bottom: 565px;
+    left: 700px;
+}
+
+.inPut:focus,
+.outPut:focus {
+    outline: none;
+}
+
+.outputWrap::-webkit-scrollbar {
+    width: 10px;
+}
+
+.outputWrap::-webkit-scrollbar-thumb {
+    background-color: #6272a4;
+    border-radius: 5px;
+}
+
+.inputBox1 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.inPut1,
+.outPut1 {
+    margin-bottom: 5px;
+}
