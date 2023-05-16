@@ -19,21 +19,12 @@ const EditorPage = () => {
     const reactNavigator = useNavigate();
     const [clients, setClients] = useState([]);
     const [output, setOutput] = useState('');
-    const [language, setLanguage] = useState('javascript');
 
     useEffect(() => {
         const init = async () => {
             socketRef.current = await initSocket();
             socketRef.current.on('connect_error', (err) => handleErrors(err));
             socketRef.current.on('connect_failed', (err) => handleErrors(err));
-            socketRef.current.on(ACTIONS.OUTPUT, ({ output }) => {
-                console.log('Received output:', output);
-                setOutput(output);
-            });
-
-            socketRef.current.on(ACTIONS.CHANGE_LANGUAGE, ({ language }) => {
-                setLanguage(language);
-              });
 
             function handleErrors(e) {
                 console.log('socket error', e);
@@ -93,18 +84,30 @@ const EditorPage = () => {
         }
     }
 
-    function handleLanguageChange(newLanguage) {
-        socketRef.current.emit(ACTIONS.CHANGE_LANGUAGE, { language: newLanguage });
-        setLanguage(newLanguage);
-        const updatedClients = clients.map(client => {
-            return {
-              ...client,
-              language: newLanguage
-            }
-        });
-        setClients(updatedClients);
-      }
-      
+    // function executeCode(jstring) {
+    //     const axios = require("axios");
+
+    //     const encodedParams = new URLSearchParams();
+    //     encodedParams.append(jstring)
+
+    //     const options = {
+    //         method: 'POST',
+    //         url: 'https://codex7.p.rapidapi.com/',
+    //         headers: {
+    //           'content-type': 'application/x-www-form-urlencoded',
+    //           'X-RapidAPI-Key': '9af68ac7a2mshaf4184ba5c4f2dfp124492jsn39bb767f43a1',
+    //           'X-RapidAPI-Host': 'codex7.p.rapidapi.com'
+    //         },
+    //         encodedParams
+    //     };
+
+    //     axios.request(options).then(function (response) {
+    //         console.log(response.data);
+    //     }).catch(function (error) {
+    //         console.error(error);
+    //     });
+    // }
+
 
     function leaveRoom() {
         reactNavigator('/');
@@ -123,8 +126,6 @@ const EditorPage = () => {
 
         // console.log('JSON Payload:', jsonString);
 
-        const username = location.state?.username;
-        toast.success(`${username} has run the program.`);
         const fetch = require('node-fetch');
         // const axios = require("axios");
         const encodedParams = new URLSearchParams();
@@ -146,21 +147,35 @@ const EditorPage = () => {
             const response = await fetch(url, options);
             const result = await response.text();
             console.log(result);
-            const output = JSON.parse(result);
+             const output = JSON.parse(result);
             var finalOut;
-            if (output.error !== "") {
-
+            if (output.error !== ""){
+                
                 finalOut = output.error + output.output;
             }
-            else {
+            else{
                 finalOut = output.output;
             }
-            //console.log(finalOut);
-            socketRef.current.emit(ACTIONS.OUTPUT, { output: finalOut });
+            console.log(finalOut);
             setOutput(finalOut);
         } catch (error) {
             console.error(error);
         }
+        // const options = {
+        //     method: 'POST',
+        //     url: 'https://codex7.p.rapidapi.com/',
+        //     headers: {
+        //         'content-type': 'application/x-www-form-urlencoded',
+        //         'X-RapidAPI-Key': '9af68ac7a2mshaf4184ba5c4f2dfp124492jsn39bb767f43a1',
+        //         'X-RapidAPI-Host': 'codex7.p.rapidapi.com'
+        //     },
+        //     encodedParams
+        // };
+        // axios.request(options).then(function (response) {
+        //     console.log(response.data);
+        // }).catch(function (error) {
+        //     console.error(error);
+        // });
     }
     if (!location.state) {
         return <Navigate to="/" />;
@@ -210,8 +225,8 @@ const EditorPage = () => {
 
                 <div className="languageSelect">
                     <label htmlFor="language">Choose Language:</label>
-                    <select name="language" id="language" onChange={handleLanguageChange}>
-                        <option value="js" >JavaScript</option>
+                    <select name="language" id="language">
+                        <option value="js" defaultValue>JavaScript</option>
                         <option value="py">Python</option>
                         <option value="cpp">C++</option>
                     </select>
