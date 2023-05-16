@@ -25,12 +25,9 @@ function getAllConnectedClients(roomId) {
         }
     );
 }
+
 io.on('connection', (socket) => {
     console.log('socket connected', socket.id);
-    socket.on(ACTIONS.OUTPUT, ({ output }) => {
-        console.log('Received output:', output);
-        socket.broadcast.emit(ACTIONS.OUTPUT, { output });
-    });
 
     socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
         userSocketMap[socket.id] = username;
@@ -44,11 +41,6 @@ io.on('connection', (socket) => {
             });
         });
     });
-
-    socket.on(ACTIONS.CHANGE_LANGUAGE, ({ language }) => {
-        io.to(roomId).emit(ACTIONS.CHANGE_LANGUAGE, { language });
-      });
-      
 
     socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
         socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
