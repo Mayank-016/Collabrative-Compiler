@@ -225,13 +225,12 @@ const EditorPage = () => {
             <label htmlFor="input" className="inPut1" id="inputL">
               Input:
             </label>
-            <textarea id="input" rows={4} className="inPut"></textarea>
+            <textarea id="input" className="inPut"></textarea>
             <label htmlFor="output" className="outPut1">
               Output:
             </label>
             <textarea
               value={output}
-              rows={4}
               readOnly
               id="output"
               className="outPut"
