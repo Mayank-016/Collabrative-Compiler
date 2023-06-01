@@ -99,11 +99,6 @@ footer a:hover {
   border-color: #368654;
 }
 
-.mainWrap {
-  display: grid;
-  grid-template-columns: 230px 1fr;
-}
-
 .aside {
   background: #1c1e29;
   padding: 16px;
@@ -148,15 +143,13 @@ footer a:hover {
   margin-top: 20px;
 }
 
-.CodeMirror {
-  /* flex-grow: 1;
-  display: flex; */
-  /* flex-direction: column; */
-  background-color: #252526;
-  /* border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 20px; */
-}
+/* .editorWrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 20px;
+} */
+
 .editorButtons {
   display: flex;
   justify-content: flex-end;
@@ -179,24 +172,24 @@ footer a:hover {
   transition: background-color 0.3s ease;
 }
 
-/* .editorButtons:hover {
-  display: block;
-  background-color: #2b824c;
-} */
-
 .outputWrap {
   display: flex;
   justify-content: space-between;
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  /* display: grid; */
+  gap: 20px;
 }
 
 .inPut,
 .outPut {
-  /* flex-grow: 1; */
   background-color: #252526;
   border-radius: 5px;
   height: fit-content;
   padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre;
 }
 
 .inPut1,
@@ -213,12 +206,27 @@ textarea {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .mainWrap {
-    grid-template-columns: 1fr;
-  }
+.mainWrap {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  height: 100vh;
+}
 
-  .aside {
-    padding: 16px 10px;
-  }
+.inPut,
+.outPut,
+textarea {
+  background-color: #1e1e1e;
+  font-size: 14px;
+  line-height: 1.4;
+  width: 95%;
+  height: 130px;
+  resize: none;
+}
+
+.codeEditor {
+  background-color: #1e1e1e;
+  height: 100%;
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
 }
