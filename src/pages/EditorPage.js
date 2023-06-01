@@ -210,32 +210,34 @@ const EditorPage = () => {
             Run
           </button>
         </div>
-        <Editor
-          socketRef={socketRef}
-          roomId={roomId}
-          onCodeChange={(code) => {
-            codeRef.current = code;
-          }}
-          onBeforeChange={(editor, data, value) => {
-            editor.setValue(value);
-          }}
-        />
         <div className="outputWrap">
-          <div className="inputBox1">
-            <label htmlFor="input" className="inPut1" id="inputL">
-              Input:
-            </label>
-            <textarea id="input" className="inPut"></textarea>
-            <label htmlFor="output" className="outPut1">
-              Output:
-            </label>
-            <textarea
-              value={output}
-              readOnly
-              id="output"
-              className="outPut"
-            ></textarea>
+          <div className="codeEditor">
+            <Editor
+              socketRef={socketRef}
+              roomId={roomId}
+              onCodeChange={(code) => {
+                codeRef.current = code;
+              }}
+              onBeforeChange={(editor, data, value) => {
+                editor.setValue(value);
+              }}
+            />
           </div>
+        </div>
+        <div className="inputBox1">
+          <label htmlFor="input" className="inPut1" id="inputL">
+            Input:
+          </label>
+          <textarea id="input" className="inPut"></textarea>
+          <label htmlFor="output" className="outPut1">
+            Output:
+          </label>
+          <textarea
+            value={output}
+            readOnly
+            id="output"
+            className="outPut"
+          ></textarea>
         </div>
       </div>
     </div>
