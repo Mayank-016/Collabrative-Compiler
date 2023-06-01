@@ -37,7 +37,6 @@ const EditorPage = () => {
         username: location.state?.username,
       });
 
-      // Listening for joined event
       socketRef.current.on(
         ACTIONS.JOINED,
         ({ clients, username, socketId }) => {
@@ -53,7 +52,6 @@ const EditorPage = () => {
         }
       );
 
-      // Listening for disconnected
       socketRef.current.on(ACTIONS.DISCONNECTED, ({ socketId, username }) => {
         toast.success(`${username} left the room.`);
         setClients((prev) => {
@@ -79,30 +77,6 @@ const EditorPage = () => {
     }
   }
 
-  // function executeCode(jstring) {
-  //     const axios = require("axios");
-
-  //     const encodedParams = new URLSearchParams();
-  //     encodedParams.append(jstring)
-
-  //     const options = {
-  //         method: 'POST',
-  //         url: 'https://codex7.p.rapidapi.com/',
-  //         headers: {
-  //           'content-type': 'application/x-www-form-urlencoded',
-  //           'X-RapidAPI-Key': '9af68ac7a2mshaf4184ba5c4f2dfp124492jsn39bb767f43a1',
-  //           'X-RapidAPI-Host': 'codex7.p.rapidapi.com'
-  //         },
-  //         encodedParams
-  //     };
-
-  //     axios.request(options).then(function (response) {
-  //         console.log(response.data);
-  //     }).catch(function (error) {
-  //         console.error(error);
-  //     });
-  // }
-
   function leaveRoom() {
     reactNavigator("/");
   }
@@ -111,28 +85,17 @@ const EditorPage = () => {
     const input = document.getElementById("input").value;
     const code = codeRef.current;
 
-    // const payload = {
-    //     code,
-    //     language,
-    //     input,
-    // };
-    // const jsonString = JSON.stringify(payload);
-
-    // console.log('JSON Payload:', jsonString);
-
     const fetch = require("node-fetch");
-    // const axios = require("axios");
+
     const encodedParams = new URLSearchParams();
     encodedParams.append("code", code);
     encodedParams.append("language", language);
     encodedParams.append("input", input);
-    const url = "https://api.codex.jaagrav.in"; //'https://codex7.p.rapidapi.com/';
+    const url = "https://compiler-codesyncc.onrender.com";
     const options = {
       method: "POST",
       headers: {
         "content-type": "application/x-www-form-urlencoded",
-        // 'X-RapidAPI-Key': '9af68ac7a2mshaf4184ba5c4f2dfp124492jsn39bb767f43a1',
-        // 'X-RapidAPI-Host': 'codex7.p.rapidapi.com'
       },
       body: encodedParams,
     };
@@ -153,21 +116,6 @@ const EditorPage = () => {
     } catch (error) {
       console.error(error);
     }
-    // const options = {
-    //     method: 'POST',
-    //     url: 'https://codex7.p.rapidapi.com/',
-    //     headers: {
-    //         'content-type': 'application/x-www-form-urlencoded',
-    //         'X-RapidAPI-Key': '9af68ac7a2mshaf4184ba5c4f2dfp124492jsn39bb767f43a1',
-    //         'X-RapidAPI-Host': 'codex7.p.rapidapi.com'
-    //     },
-    //     encodedParams
-    // };
-    // axios.request(options).then(function (response) {
-    //     console.log(response.data);
-    // }).catch(function (error) {
-    //     console.error(error);
-    // });
   }
   if (!location.state) {
     return <Navigate to="/" />;
