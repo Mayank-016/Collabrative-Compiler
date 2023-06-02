@@ -147,11 +147,15 @@ const EditorPage = () => {
           <div className="languageSelect">
             <label htmlFor="language">Choose Language:</label>
             <select name="language" id="language">
-              <option value="js" defaultValue>
-                JavaScript
+              <option value="js">JavaScript</option>
+              <option value="py" defaultValue>
+                Python
               </option>
-              <option value="py">Python</option>
               <option value="cpp">C++</option>
+              <option value="java">Java</option>
+              <option value="c">C</option>
+              <option value="go">GoLang</option>
+              <option value="cs">C#</option>
             </select>
           </div>
           <button className="btn runBtn" onClick={handleRunButtonClick}>
