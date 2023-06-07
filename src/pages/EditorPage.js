@@ -147,13 +147,13 @@ const EditorPage = () => {
           <div className="languageSelect">
             <label htmlFor="language">Choose Language:</label>
             <select name="language" id="language">
-              <option value="js">JavaScript</option>
-              <option value="py" defaultValue>
-                Python
+              <option value="c" defaultValue selected>
+                C
               </option>
               <option value="cpp">C++</option>
+              <option value="js">JavaScript</option>
+              <option value="py">Python</option>
               <option value="java">Java</option>
-              <option value="c">C</option>
               <option value="go">GoLang</option>
               <option value="cs">C#</option>
             </select>
