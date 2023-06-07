@@ -91,7 +91,7 @@ const EditorPage = () => {
     encodedParams.append("code", code);
     encodedParams.append("language", language);
     encodedParams.append("input", input);
-    const url = "https://compiler-codesyncc.onrender.com";
+    const url = "https://code-syncc-backend.onrender.com";
     const options = {
       method: "POST",
       headers: {
